@@ -14,14 +14,14 @@ public class GrillaPelicula implements IGrillaPeliculas {
     public Pelicula getPeliculas(String nombre) throws PeliculaInexistenteException{
 
         for(Pelicula peli : this.peliculas){
-            if(nombre.equals(peli.getNombre())){
+            if(nombre.equals(peli.nombre())){
                 return peli;
             }
         }
         throw new  PeliculaInexistenteException("La pelicula no existe.");
     }
 
-    void addPelicula(Pelicula peli){
+    public void addPelicula(Pelicula peli){
         this.peliculas.add(peli);
     }
 }

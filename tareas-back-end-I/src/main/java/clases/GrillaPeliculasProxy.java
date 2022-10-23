@@ -15,20 +15,20 @@ public class GrillaPeliculasProxy implements IGrillaPeliculas  {
     @Override
     public Pelicula getPeliculas(String nombre) throws PeliculaNoHabilitadaException, PaisMalConfiguradoException, PeliculaInexistenteException {
 
-        if (this.obtenerPais().equals(this.pelicula.getPeliculas(nombre).getPais())){
+        if (this.obtenerPais().equals(this.pelicula.getPeliculas(nombre).pais())){
             return this.pelicula.getPeliculas(nombre);
         }
         throw new PeliculaNoHabilitadaException("La pelicula no esta habilitada para ese pais.");
     }
 
     String obtenerPais() throws PaisMalConfiguradoException{
-        if(this.ip.getIp() < 50){
+        if(this.ip.ip() < 50){
             return "Argentina";
         }
-        if(this.ip.getIp() > 50 && this.ip.getIp() < 99){
+        if(this.ip.ip() > 50 && this.ip.ip() < 99){
             return "Brasil";
         }
-        if(this.ip.getIp() > 100 && this.ip.getIp() < 149){
+        if(this.ip.ip() > 100 && this.ip.ip() < 149){
             return "Colombia";
         }
 
