@@ -3,12 +3,14 @@ package clases;
 import interfaces.IGrillaPeliculas;
 
 
+
 public class GrillaPeliculasProxy implements IGrillaPeliculas  {
 
-    private final GrillaPelicula pelicula = new GrillaPelicula();
+    private final GrillaPelicula pelicula;
     private final Ip ip;
 
-    public GrillaPeliculasProxy(Ip ip) {
+    public GrillaPeliculasProxy(Ip ip, GrillaPelicula pelicula) {
+        this.pelicula = pelicula;
         this.ip = ip;
     }
 
@@ -19,9 +21,10 @@ public class GrillaPeliculasProxy implements IGrillaPeliculas  {
             return this.pelicula.getPeliculas(nombre);
         }
         throw new PeliculaNoHabilitadaException("La pelicula no esta habilitada para ese pais.");
+
     }
 
-    String obtenerPais() throws PaisMalConfiguradoException{
+    public String obtenerPais() throws PaisMalConfiguradoException{
         if(this.ip.ip() < 50){
             return "Argentina";
         }

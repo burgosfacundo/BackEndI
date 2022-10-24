@@ -1,11 +1,13 @@
 package clases;
 
 import interfaces.IGrillaPeliculas;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class GrillaPelicula implements IGrillaPeliculas {
 
-    private List<Pelicula> peliculas;
+    private final List<Pelicula> peliculas = new ArrayList<>();
 
     public GrillaPelicula() {
     }
