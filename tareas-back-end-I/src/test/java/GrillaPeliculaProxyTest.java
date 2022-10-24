@@ -23,8 +23,10 @@ public class GrillaPeliculaProxyTest {
 
         var proxy = new GrillaPeliculasProxy(ip, grilla);
 
-        //WHEN AND THEN
-        assertEquals(proxy.getPeliculas("Spiderman 2"),peli2);
+        //WHEN
+        var actual = proxy.getPeliculas("Spiderman 2");
+        //THEN
+        assertEquals(actual,peli2);
 
     }
 
