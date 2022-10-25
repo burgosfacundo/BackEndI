@@ -1,6 +1,10 @@
+package clases;
+
+import interfaces.IBuscar;
+
 import java.util.ArrayList;
 
-public class ServiceTurismo {
+public class ServiceTurismo implements IBuscar {
 
     private final ServiceVuelo serviceVuelo;
     private final ServiceHotel serviceHotel;
@@ -9,6 +13,7 @@ public class ServiceTurismo {
         this.serviceVuelo = serviceVuelo;
     }
 
+    @Override
     public String buscar(String origen,String destino, String salida, String regreso) {
 
         ArrayList<Vuelo> vuelos = this.serviceVuelo.buscarVuelo(salida,regreso,origen,destino);
