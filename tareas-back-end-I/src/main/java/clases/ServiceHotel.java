@@ -2,29 +2,20 @@ package clases;
 
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ServiceHotel {
 
-    private final ArrayList<Hotel> hoteles;
+    private final List<Hotel> hoteles = new ArrayList<>();
 
-    public ServiceHotel(ArrayList<Hotel> hoteles) {
-        this.hoteles = hoteles;
+
+    public List<Hotel> buscarHotel(String salida, String regreso, String ciudad){
+        return this.hoteles.stream().filter(hotel -> hotel.salida().equals(salida) && hotel.regreso().equals(regreso) && hotel.destino().equals(ciudad)).collect(Collectors.toList());
     }
 
-    public ArrayList<Hotel> buscarHotel(String salida, String regreso, String ciudad){
 
-        ArrayList<Hotel> hoteles1= new ArrayList<>();
-
-        siHotelExiste(salida, regreso, ciudad, hoteles1);
-
-        return hoteles1;
-    }
-
-    private void siHotelExiste(String salida, String regreso, String ciudad, ArrayList<Hotel> hoteles1) {
-        for(Hotel hotel:this.hoteles){
-            if(hotel.salida().equals(salida) && hotel.regreso().equals(regreso) && hotel.destino().equals(ciudad)){
-                hoteles1.add(hotel);
-            }
-        }
+    public void addHotel(Hotel hotel){
+        this.hoteles.add(hotel);
     }
 }

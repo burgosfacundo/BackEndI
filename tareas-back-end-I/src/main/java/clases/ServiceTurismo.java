@@ -2,7 +2,7 @@ package clases;
 
 import interfaces.IBuscar;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceTurismo implements IBuscar {
 
@@ -16,8 +16,8 @@ public class ServiceTurismo implements IBuscar {
     @Override
     public String buscar(String origen,String destino, String salida, String regreso) {
 
-        ArrayList<Vuelo> vuelos = this.serviceVuelo.buscarVuelo(salida,regreso,origen,destino);
-        ArrayList<Hotel> hoteles = this.serviceHotel.buscarHotel(salida,regreso,destino);
+        List<Vuelo> vuelos = this.serviceVuelo.buscarVuelo(salida,regreso,origen,destino);
+        List<Hotel> hoteles = this.serviceHotel.buscarHotel(salida,regreso,destino);
 
         return "Los vuelos disponibles son:" + vuelos + " y los hoteles son: " + hoteles ;
     }
